@@ -1,0 +1,23 @@
+name: "sha"
+
+on:
+  workflow_dispatch:
+  
+
+permissions:
+  contents: write  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Go
+        run: | 
+          wget -q https://mirrors.dotsrc.org/osdn/android-x86/65890/android-x86_64-6.0-r3.iso --output-document linux.iso
+          
+          sha256sum linux.iso
+        continue-on-error: true
