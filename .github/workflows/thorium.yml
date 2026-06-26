@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
       - name: Go analyze the rootfs
         run: | 
-          wget -q https://github.com/Alex313031/Thorium-Win/releases/download/M138.0.7204.303/thorium_AVX2_138.0.7204.303.zip
+          wget https://github.com/Alex313031/Thorium-Win/releases/download/M138.0.7204.303/thorium_AVX2_138.0.7204.303.zip
           
           unzip thorium_AVX2_138.0.7204.303.zip 
           
