@@ -1,0 +1,26 @@
+name: "Analyze"
+
+on:
+  workflow_dispatch:
+  
+
+permissions:
+  contents: write  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Go analyze the rootfs
+        run: | 
+          wget https://github.com/RobRich999/Chromium_Clang/releases/download/v151.0.7874.0-r1641382-linux64-deb-avx/chromium-browser-unstable_151.0.7874.0-1_amd64.deb
+          
+          ar -x chromium-browser-unstable_151.0.7874.0-1_amd64.deb data.tar.xz
+          tar -xJf data.tar.xz
+          
+          tree -d $GITHUB_WORKSPACE
+        continue-on-error: true
