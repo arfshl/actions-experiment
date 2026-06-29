@@ -17,10 +17,10 @@ jobs:
           fetch-depth: 0
       - name: Go analyze the rootfs
         run: | 
-          wget https://github.com/RobRich999/Chromium_Clang/releases/download/v151.0.7874.0-r1641382-linux64-deb-avx/chromium-browser-unstable_151.0.7874.0-1_amd64.deb
-          
-          ar -x chromium-browser-unstable_151.0.7874.0-1_amd64.deb data.tar.xz
-          tar -xJf data.tar.xz
-          
+          # wget https://github.com/RobRich999/Chromium_Clang/releases/download/v151.0.7874.0-r1641382-linux64-deb-avx/chromium-browser-unstable_151.0.7874.0-1_amd64.deb
+          # ar -x chromium-browser-unstable_151.0.7874.0-1_amd64.deb data.tar.xz
+          # tar -xJf data.tar.xz
+          wget https://storage.googleapis.com/chromium-browser-snapshots/Linux_x64/1654038/chrome-linux.zip
+          unzip chrome-linux.zip
           tree -d $GITHUB_WORKSPACE
         continue-on-error: true
